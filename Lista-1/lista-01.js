@@ -45,7 +45,6 @@
 // }
 // compararString(msg1,msg2)
 
-
 // 5- Crie uma função que concatene duas listas (arrays) e retorne a lista resultante.
 
 // let arr1 = [1,2,3];
@@ -70,11 +69,11 @@
 
 // 7- Crie uma função que retorne a data e hora atuais no formato legível: "Dia/Mês/Ano Hora:Minuto:Segundo".
 
-// function dataHoraAtual() {
-//     let data = new Date().toLocaleString();
-//     console.log(data);
-// }
-// dataHoraAtual();
+function dataHoraAtual() {
+    let data = new Date().toLocaleString();
+    console.log(data);
+}
+dataHoraAtual();
 
 // 8- Implemente um programa que encontre o maior valor em um array usando a função Math.max().
 
