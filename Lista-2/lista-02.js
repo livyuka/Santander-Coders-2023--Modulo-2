@@ -154,16 +154,16 @@
 //     valor: 250
 //     }
 // ];
-// function calculaDespesa(categ) {
-//     let despesa = despesas.reduce((acumulador, produtoAtual) => {
+// function calculaDespesa(listas,categ) {
+//     let despesaTotal = listas.reduce((acumulador, produtoAtual) => {
 //         if (categ.toLowerCase() === produtoAtual.categoria) {
 //             acumulador += produtoAtual.valor;
 //         }
 //         return acumulador;
 //     }, 0)
-//     console.log(`A despesa total com ${categ} é ${despesa}.`);
+//     console.log(`A despesa total com ${categ} é ${despesaTotal}.`);
 // }
-// calculaDespesa('Roupa')
+// calculaDespesa(despesas,'Roupa')
 
 // 12- Dado um array de números, use o método reduce() para encontrar o maior número no array.
 
@@ -243,16 +243,16 @@
 
 
 // 19- Crie um programa que gere a sequência de Fibonacci até o décimo termo. (Dica: o próximo termo é a soma dos dois termos anteriores)
-// function fibonnacci() {
-//     let a = 0, b = 1, c = 0;
-//     for(i = 0; i < 10; i++){
+// function fibonnacci(termo) {
+//     let a = 1, b = 1, c = 0;
+//     for(i = 0; i < termo; i++){
+//         console.log(a)
 //         c = a + b;
 //         a = b;
 //         b = c;
-//         console.log(c)
 //     }
 // }
-// fibonnacci()
+// fibonnacci(10)
 
 // 20- Crie um programa que solicite ao usuário um número e calcule o fatorial desse número.
 
@@ -339,16 +339,16 @@
 
 // 24- Crie um programa que gere a sequência de números de Fibonacci usando um loop while até que o próximo termo seja maior que 1000.
 
-// function fibonnacci() {
-//     let a = 0, b = 1, c = 0;
-//     while(c <= 1000) {
+// function fibonnacci(numero) {
+//     let a = 1, b = 1, c = 0;
+//     while(a <= numero) {
+//         console.log(a)
 //         c = a + b;
 //         a = b;
 //         b = c;
-//         console.log(c)
 //     }
 // }
-// fibonnacci()
+// fibonnacci(1000)
 
 // 25- Escreva um programa que calcule a média de uma lista de números. O usuário deve fornecer quantos números deseja inserir, e em seguida, inserir os números.
 // function arrNumeros() {
@@ -467,9 +467,15 @@
 // }
 // potencia2()
 
-
-
 // 30- Escreva um código JavaScript que utilize um laço de repetição while para calcular a soma dos números de 1 a 100 e exiba o resultado.
+// let i = 1
+// let soma = 0
+// while (i <= 100){
+//     soma += i
+//     i++
+// }
+// console.log(soma)
+
 
 // ### Condicionais
 
@@ -479,11 +485,51 @@
 // Use uma estrutura condicional para verificar se a letra é uma vogal ou uma consoante.
 // Exiba uma mensagem indicando se a letra é uma vogal ou consoante.
 
+// let letra = prompt('Digite uma letra').toLowerCase();
+// let vogais = ['a', 'e', 'i', 'o', 'u', 'á', 'é', 'í', 'ó', 'ú', 'â', 'ê', 'ô', 'ã', 'õ'];
+// if (letra.length > 1){
+//     console.log('Digite somente uma letra');
+// }else {
+//     if (vogais.includes(letra)){
+//         console.log(`A letra ${letra} é uma vogal`);
+//     }else if (letra >= 'a' && letra <= 'z'){
+//         console.log(`A letra ${letra} é uma consoante`);
+//     }else{
+//         console.log('Entrada inválida');
+//     }
+// } 
+
 // 32- Calculadora simples
 
 // Peça ao usuário para digitar dois números e uma operação matemática (+, -, *, /).
 // Use uma estrutura condicional para realizar a operação selecionada nos números dados.
 // Exiba o resultado da operação.
+
+// let primeiroNum = parseFloat(prompt('Digite o primeiro número'));
+// let segundoNum = parseFloat(prompt('Digite o segundo número'));
+// let operacao = prompt('Digite uma operação matemática (ex: +, -, *, /)');
+// let resultado = 0;
+
+// switch(operacao){
+//     case '+':
+//         resultado = primeiroNum + segundoNum;
+//         console.log(`A soma entre ${primeiroNum} e ${segundoNum} é ${resultado}`);
+//         break;
+//     case '-':
+//         resultado = primeiroNum - segundoNum;
+//         console.log(`A subtração entre ${primeiroNum} e ${segundoNum} é ${resultado}`);
+//         break;
+//     case '*':
+//         resultado = primeiroNum * segundoNum;
+//         console.log(`A multiplicação entre ${primeiroNum} e ${segundoNum} é ${resultado}`);
+//         break;
+//     case '/':
+//         resultado = primeiroNum / segundoNum;
+//         console.log(`A divisão entre ${primeiroNum} e ${segundoNum} é ${resultado}`);
+//         break;
+//     default:
+//         console.log('Insira uma operação válida!')
+// }
 
 // 33- Verificação de número primo
 
@@ -491,16 +537,74 @@
 // Use uma estrutura condicional para verificar se o número é primo (divisível apenas por 1 e por ele mesmo).
 // Exiba uma mensagem indicando se o número é primo ou não.
 
+// let numero = prompt('Qual o número?')
+// let contador = 0;
+// function numeroEPrimo() {
+//     for (i = 1; i <= numero; i++) {
+//         if (numero % i === 0){
+//             contador++;
+//         }
+//     }
+//     if (contador === 2) {
+//         console.log(`O número ${numero} é primo`)
+//     }else {
+//         console.log(`O número ${numero} não é primo`)
+//     }
+// }
+// numeroEPrimo();
+
+
 // 34- Conversão de temperatura
 
 // Peça ao usuário para digitar uma temperatura em graus Celsius.
 // Use uma estrutura condicional para converter a temperatura para Fahrenheit ou Kelvin, de acordo com a escolha do usuário.
 // Exiba o resultado da conversão.
+// let temperatura = parseFloat(prompt('Digite uma temperatura em °C'));
+// let escolha = prompt('Qual conversão? DIGITE F para Fahrenheit ou K para Kelvin');
+
+// if (escolha.toUpperCase() === 'F'){
+//     temperatura = (temperatura * 9/5) + 32;
+//     console.log(temperatura);
+// }else if (escolha.toUpperCase() === 'K'){
+//     temperatura += 273.15;
+//     console.log(temperatura);
+// }else {
+//     console.log('Digite uma conversão válida')
+// }
 
 // 35- Dia da semana por extenso
 
 // Peça ao usuário para digitar um número de 1 a 7 representando um dia da semana.
 // Use uma estrutura condicional switch para exibir o nome completo do dia da semana correspondente ao número digitado.
+
+// let numeroSem = parseInt(prompt('Digite um número de 1 a 7'))
+
+// switch(numeroSem){
+//     case 1:
+//         console.log('Domingo');
+//         break;
+//     case 2:
+//         console.log('Segunda-feira');
+//         break;
+//     case 3:
+//         console.log('Terça-feira');
+//         break;
+//     case 4:
+//         console.log('Quarta-feira');
+//         break;
+//     case 5:
+//         console.log('Quinta-feira');
+//         break;
+//     case 6:
+//         console.log('Sexta-feira');
+//         break;
+//     case 7:
+//         console.log('Sábado');
+//         break;
+//     default:
+//         console.log('Digite um número válido');
+//         break;
+// }
 
 // 36- Verificação de ano bissexto
 
@@ -508,11 +612,41 @@
 // Use uma estrutura condicional para verificar se o ano é bissexto (divisível por 4 e não por 100, exceto se for divisível por 400).
 // Exiba uma mensagem indicando se o ano é bissexto ou não.
 
+// function anoBissexto() {
+//     let ano = prompt('Qual o ano?')
+//     if ((ano % 4 === 0 && ano % 100 !== 0) || (ano % 400 === 0)) {
+//         console.log(`O ano ${ano} é bissexto`);
+//         }
+//     else {
+//         console.log(`O ano ${ano} não é bissexto`);
+//     }
+// }
+// anoBissexto();
+
 // 37- Contador de vogais e consoantes
 
 // Peça ao usuário para digitar uma palavra ou frase.
 // Use uma estrutura condicional para contar o número de vogais e consoantes na entrada.
 // Exiba os resultados separadamente.
+
+// const entradaUsuario = prompt('Digite uma palavra ou frase');
+// const arrEntrada = entradaUsuario.toLocaleLowerCase().split('');
+
+// let vogal = 0;
+// let consoante = 0;
+// let vogais = ['a', 'e', 'i', 'o', 'u', 'á', 'é', 'í', 'ó', 'ú', 'â', 'ê', 'ô', 'ã', 'õ'];
+
+// for (i = 0; i < arrEntrada.length; i++){
+//     if (vogais.includes(arrEntrada[i]) ){
+//         vogal++;    
+//     }else if (arrEntrada[i] >= 'a' && arrEntrada[i] <= 'z') {
+//         consoante++
+//     }else{
+//         continue
+//     }
+// }
+// console.log(`'${entradaUsuario}' tem ${vogal} vogais`)
+// console.log(`'${entradaUsuario}' tem ${consoante} consoantes`)
 
 // 38- Verificação de número positivo, negativo ou zero
 
@@ -520,14 +654,69 @@
 // Use uma estrutura condicional para verificar se o número é positivo, negativo ou zero.
 // Exiba uma mensagem indicando a natureza do número.
 
+// const numero = parseFloat(prompt('Digite um número'));
+
+// if (isNaN(numero)){
+//     console.log('Digite um número válido')
+// }else{
+//     if (numero === 0){
+//         console.log('O número é zero')
+//     }else if (numero > 0){
+//         console.log(`O número ${numero} é positivo`)
+//     }else{
+//         console.log(`O número ${numero} é negativo`)
+//     }
+// }
+
 // 39- Sistema de bilhete de cinema
 
 // Peça ao usuário para digitar sua idade e se tem cartão de estudante (responda com "sim" ou "não").
 // Use uma estrutura condicional para determinar o preço do bilhete de cinema de acordo com as regras: menores de 18 anos pagam $5, estudantes pagam $8 e os demais pagam $10.
 // Exiba o preço do bilhete.
 
+// const idade = parseInt(prompt('Digite sua idade'));
+// const estudante = prompt('Possui cartão de estudante? Responda com "sim" ou "não"');
+// const mensagem = 'O preço do bilhete é '
+// if (idade < 18){
+//     console.log(mensagem + '$5')
+// }else if(estudante === 'sim'){
+//     console.log(mensagem + '$8')
+// }else {
+//     console.log(mensagem + '$10')
+// }
+
 // 40- Verificação de palíndromo
 
 // Peça ao usuário para digitar uma palavra ou frase.
 // Use uma estrutura condicional para verificar se a entrada é um palíndromo (lê-se igual de trás para frente e de frente para trás).
 // Exiba uma mensagem indicando se a entrada é um palíndromo ou não.
+
+// const entradaUsuario = prompt('Digite uma palavra ou frase').toLowerCase();
+
+// function ePalindromo() {
+//     let arrEntrada = entradaUsuario.split('').filter(e => e.trim() != '');
+//     const revertido = [...arrEntrada].reverse();
+//     arrEntrada.join('') === revertido.join('') ? console.log(`'${entradaUsuario}' é palíndromo`) : console.log(`'${entradaUsuario}' não é palíndromo`);
+//     console.log(arrEntrada);
+//     console.log(revertido);
+// }
+// ePalindromo()
+
+// const entradaUsuario = prompt('Digite uma palavra ou frase').toLowerCase();
+
+// function ePalindromo(texto) {
+//     const semEspacos = texto.replace(/\s/g, ''); // Remover espaços
+//     const reverso = semEspacos.split('').reverse().join('');
+//     console.log(semEspacos)
+//     console.log(reverso)
+
+//     return semEspacos === reverso;
+// }
+
+// if (ePalindromo(entradaUsuario)) {
+//     console.log(`'${entradaUsuario}' é um palíndromo`);
+// } else {
+//     console.log(`'${entradaUsuario}' não é um palíndromo`);
+// }
+
+
